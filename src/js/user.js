@@ -9,3 +9,18 @@ export function loadUser(id) {
 export function saveUser(user) {
   throw new Error('Unimplemented');
 }
+
+export default class Validator {
+  validateUsername(value) {
+
+    if(!/^[^0-9-_][a-z-_0-9]*[^0-9-_]$/i.test(value)) {
+      return 'Wrong username'
+    }
+
+    if(/\d{3,}/.test(value)) {
+      return 'Test failed. More then two digits!'
+    }
+
+    return 'Success'
+  }
+}
