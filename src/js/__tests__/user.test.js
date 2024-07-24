@@ -17,15 +17,17 @@ test('should call loadUser once', () => {
 });
 
 const dataForTest = [
-    ['GA-23if3u_ll-i12_n', 'Success'],
-    ["!fsks#", 'Success'],
-    ['fdjsk3', 'Wrong username'],
-    ['3sdkfjn', 'Wrong username'],
-    ['hs32d32f333g32s', 'Test failed. More then two digits!'],
-    ['-sdfak', 'Wrong username'],
-    ['_sdfak', 'Wrong username'],
-    ['sdfak-', 'Wrong username'],
-    ['sdfak_', 'Wrong username']
+    ['GA-23if3u_ll-i12_n', true],
+    ["!fsks#", true],
+    ['fdjsk3', false],
+    ['3sdkfjn', false],
+    ['hs32d32f33233g32s', false],
+    ['-sdfak', false],
+    ['_sdfak', false],
+    ['sdfak-', false],
+    ['sdfak_', false],
+    ['na123me', true],
+    ['na1235me', false]
   ]
 
 test.each(dataForTest)('Username test: $s Result: %s', (value, result) => {
